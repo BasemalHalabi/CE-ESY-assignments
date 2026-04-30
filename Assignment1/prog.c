@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #define SIZE 10
-
 typedef struct {
     char buffer[SIZE];
     int head;
     int tail;
     int count;
-} 
-CircularBuffer;
+} CircularBuffer;
 void init(CircularBuffer *cb) {
     cb->head = 0;
     cb->tail = 0;
@@ -39,7 +37,6 @@ char readCB(CircularBuffer *cb) {
     cb->count--;
     return data;
 }
-
 int main() {
     CircularBuffer cb;
     init(&cb);
@@ -58,5 +55,9 @@ int main() {
     if (isEmpty(&cb)) {
         printf("Empty buffer\n");
     }
+
+    printf("Testing Underflow:\n");
+    readCB(&cb);
+
     return 0;
 }
